@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux'; //create Store first
 import { Provider } from 'react-redux'; //wrap with Provider
 import reducer from "./reducers";
+import TodoList from './components/TodoList';
 
 import './index.css';
-import App from './App';
 
 const store = createStore(reducer);
+
+function App() {
+    return (
+      <div className="App">
+        <h1>Todo App</h1>
+        <TodoList />
+      </div>
+      );
+    }
 
 ReactDOM.render(
    <Provider store={store}>
