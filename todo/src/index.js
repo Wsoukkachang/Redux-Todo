@@ -12,7 +12,7 @@ const store = createStore(reducer);
 function App() {
     return (
       <div className="App">
-        <h1>Todo App</h1>
+        <h1>Redux Todo App</h1>
         <TodoList />
       </div>
       );

@@ -2,8 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {addTodo, toggleTodo} from '../actions';
 
-import Todo from './Todo';
-
 class TodoList extends React.Component {
    state = {
       value: '',
@@ -16,7 +14,12 @@ class TodoList extends React.Component {
 
    addTodo = e => {
       e.preventDefault();
-      this.props.addTodo(this.state)
+      if (this.state.value !== '') {
+          this.props.addTodo(this.state);
+          this.setState({value: ''})
+        } else {
+            return;
+        }
    }
 
    toggleTodo = (e, id) => {
@@ -29,18 +32,19 @@ class TodoList extends React.Component {
       return (
          <div>
             <form>
-               <input onChange={this.handleChange} placeholder="Enter a task"></input>
-               <button onClick={this.addTodo}>Add Todo</button>
+               <input onChange={this.handleChange} placeholder="Enter A Task!"></input>
+               <button onClick={this.addTodo}>Add Task</button>
             </form>
 
             <div className="todoList">
+            <h2>TASK TO DO: </h2>
                {this.props.todos.map((todo, id) => (
                   <div
                     key={id} 
                     onClick={e => this.toggleTodo(e, id)} 
                     className={`todo ${todo.completed === true ? 'completed' : '' }`}
                   >
-                    Todo: {todo.value}
+                    Task: {todo.value}
                   </div>
                ))}
             </div>

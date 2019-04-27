@@ -3,7 +3,7 @@ export const TOGGLE_TODO = "TOGGLE_TODO";
 
 
 export const addTodo = todo => {
-    console.log(todo);
+    // console.log(todo);
 
     return {
         type: ADD_TODO,
@@ -12,7 +12,7 @@ export const addTodo = todo => {
 }
 
 export const toggleTodo = id => {
-    console.log(id);
+    // console.log(id);
 
     return {
         type: TOGGLE_TODO,
